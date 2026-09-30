@@ -1,5 +1,5 @@
 -- =====================================================================
--- KHELRATNA — initial schema
+-- ARJUNA BOOK OF WORLD RECORD — initial schema
 -- Tables, row level security, storage buckets and storage policies.
 --
 -- Access model
@@ -52,7 +52,7 @@ grant execute on function public.is_admin() to anon, authenticated;
 -- ---------------------------------------------------------------------
 create table public.site_settings (
   id               int primary key default 1 check (id = 1),
-  org_name         text not null default 'Khelratna',
+  org_name         text not null default 'Arjuna Book of World Record',
   tagline          text,
   logo_url         text,
   favicon_url      text,
@@ -138,7 +138,6 @@ create table public.competitions (
   awards_info        text,
   results_summary    text,
   documents          jsonb not null default '[]'::jsonb, -- [{ "name": "", "url": "" }]
-  registration_url   text,
   created_at         timestamptz not null default now(),
   updated_at         timestamptz not null default now(),
   constraint competitions_dates_check check (end_date is null or start_date is null or end_date >= start_date)
@@ -197,7 +196,7 @@ create index champions_athlete_idx on public.champions (athlete_id);
 create index champions_year_idx on public.champions (year desc);
 
 -- ---------------------------------------------------------------------
--- World records (only records supplied and verified by Khelratna)
+-- World records (only records supplied and verified by Arjuna Book of World Record)
 -- ---------------------------------------------------------------------
 create table public.world_records (
   id                uuid primary key default gen_random_uuid(),
@@ -441,7 +440,7 @@ create policy "public read public buckets" on storage.objects
                   'award-images','gallery','news','documents')
   );
 
--- Admins manage every Khelratna bucket, including the private certificates bucket
+-- Admins manage every Arjuna Book of World Record bucket, including the private certificates bucket
 create policy "admins read all buckets" on storage.objects
   for select to authenticated using (public.is_admin());
 create policy "admins upload" on storage.objects

@@ -7,7 +7,7 @@ import { AppError } from './errors'
 type Row = Record<string, unknown>
 type Store = Record<TableName, Row[]>
 
-const STORAGE_KEY = 'khelratna-demo-db-v1'
+const STORAGE_KEY = 'arjunabookofworldrecord-demo-db-v1'
 
 const UNIQUE: Partial<Record<TableName, string[]>> = {
   competitions: ['slug'],

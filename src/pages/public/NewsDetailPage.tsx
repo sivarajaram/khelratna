@@ -43,8 +43,8 @@ export default function NewsDetailPage() {
           dateModified: n.updated_at || n.publish_date,
           url: absoluteUrl(`/news/${n.slug}`),
           ...(n.cover_image_url ? { image: [n.cover_image_url] } : {}),
-          author: { '@type': n.author ? 'Person' : 'Organization', name: n.author ?? settings?.org_name ?? 'Khelratna' },
-          publisher: { '@type': 'Organization', name: settings?.org_name ?? 'Khelratna' },
+          author: { '@type': n.author ? 'Person' : 'Organization', name: n.author ?? settings?.org_name ?? 'Arjuna Book of World Record' },
+          publisher: { '@type': 'Organization', name: settings?.org_name ?? 'Arjuna Book of World Record' },
         }}
       />
 

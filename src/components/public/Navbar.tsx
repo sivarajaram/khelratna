@@ -48,7 +48,7 @@ export function Navbar() {
         )}
       >
         <nav className="container-page flex h-18 items-center justify-between gap-6 lg:h-20" aria-label="Main">
-          <Link to="/" className="shrink-0 rounded-lg" aria-label={`${settings?.org_name ?? 'Khelratna'} — home`}>
+          <Link to="/" className="shrink-0 rounded-lg" aria-label={`${settings?.org_name ?? 'Arjuna Book of World Record'} — home`}>
             <Logo logoUrl={settings?.logo_url} name={settings?.org_name} tone={solid ? 'dark' : 'light'} />
           </Link>
 

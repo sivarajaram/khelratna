@@ -29,7 +29,7 @@ export default function ChampionsPage() {
     <>
       <Seo
         title="Champions"
-        description="Karate champions and medal winners from Khelratna championships — filter by year, competition, category, gender and age group."
+        description="Karate champions and medal winners from Arjuna Book of World Record championships — filter by year, competition, category, gender and age group."
       />
       <PageHero
         eyebrow="Champions"
@@ -40,7 +40,7 @@ export default function ChampionsPage() {
             made their mark
           </>
         }
-        description="The athletes who stood on the podium at Khelratna championships."
+        description="The athletes who stood on the podium at Arjuna Book of World Record championships."
         crumbs={[{ label: 'Champions' }]}
       />
 

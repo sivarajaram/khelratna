@@ -22,12 +22,12 @@ export default function NewsPage() {
 
   return (
     <>
-      <Seo title="News" description="Announcements, championship results and stories from Khelratna." />
+      <Seo title="News" description="Announcements, championship results and stories from Arjuna Book of World Record." />
       <PageHero
         variant="editorial"
         eyebrow="Newsroom"
         title="News & stories"
-        description="Announcements, results and stories from Khelratna championships."
+        description="Announcements, results and stories from Arjuna Book of World Record championships."
         crumbs={[{ label: 'News' }]}
       />
 

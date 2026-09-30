@@ -98,7 +98,7 @@ export default function AdminLayout() {
     const meta = document.querySelector('meta[name="robots"]') ?? Object.assign(document.createElement('meta'), { name: 'robots' })
     meta.setAttribute('content', 'noindex, nofollow')
     document.head.appendChild(meta)
-    document.title = 'Admin | Khelratna'
+    document.title = 'Admin | Arjuna Book of World Record'
   }, [location.pathname])
 
   return (

@@ -45,11 +45,11 @@ export default function CertificatesPage() {
 
   return (
     <>
-      <Seo title="Certificate Verification" description="Verify the authenticity of a certificate issued by Khelratna using its certificate number." />
+      <Seo title="Certificate Verification" description="Verify the authenticity of a certificate issued by Arjuna Book of World Record using its certificate number." />
       <PageHero
         eyebrow="Verification"
         title="Certificate verification"
-        description="Confirm that a certificate was genuinely issued by Khelratna. Enter the certificate number printed on the document."
+        description="Confirm that a certificate was genuinely issued by Arjuna Book of World Record. Enter the certificate number printed on the document."
         crumbs={[{ label: 'Certificate Verification' }]}
       />
 
@@ -100,7 +100,7 @@ export default function CertificatesPage() {
                     <BadgeCheck className="size-8 text-emerald-600" aria-hidden />
                     <div>
                       <p className="font-display text-xl font-bold tracking-wide text-emerald-800 uppercase">✓ Verified</p>
-                      <p className="text-sm text-emerald-800/80">This certificate was issued by Khelratna.</p>
+                      <p className="text-sm text-emerald-800/80">This certificate was issued by Arjuna Book of World Record.</p>
                     </div>
                   </div>
                   <dl className="grid gap-6 px-6 py-8 sm:grid-cols-2 sm:px-10">
@@ -135,7 +135,7 @@ export default function CertificatesPage() {
                     <p className="font-display text-xl font-bold tracking-wide text-red-700 uppercase">Certificate not found</p>
                     <p className="mt-2 text-sm leading-6 text-muted">
                       No valid certificate matches <span className="font-mono font-semibold text-ink">{result.number.toUpperCase()}</span>. Check the number and
-                      try again, or contact Khelratna if you believe this is an error.
+                      try again, or contact Arjuna Book of World Record if you believe this is an error.
                     </p>
                   </div>
                 </motion.div>

@@ -15,6 +15,7 @@ import { CardGridSkeleton, EmptyState, Skeleton } from '@/components/common/Stat
 import { LinkButton } from '@/components/common/Button'
 import { AwardCard } from '@/components/public/Cards'
 import { StatCounter } from '@/components/public/StatCounter'
+import { IsbnSection } from '@/components/public/IsbnSection'
 
 const valueIcons = [ShieldCheck, Star, Trophy, Users, Medal, Sparkles]
 
@@ -35,10 +36,12 @@ export default function AboutPage() {
     <>
       <Seo
         title="About"
-        description={settings?.about_summary ?? 'The story, mission and values of Khelratna, a Karate competition and recognition organisation.'}
+        description={
+          settings?.about_summary ?? 'The story, mission and values of Arjuna Book of World Record, a Karate competition and recognition organisation.'
+        }
       />
       <PageHero
-        eyebrow="About Khelratna"
+        eyebrow="About Arjuna Book of World Record"
         title={
           <>
             Our journey
@@ -55,7 +58,7 @@ export default function AboutPage() {
       <section className="py-24 lg:py-32" aria-labelledby="story-title">
         <div className="container-page grid gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-6">
-            <SectionHeader eyebrow="Our story" title={<span id="story-title">The Khelratna story</span>} />
+            <SectionHeader eyebrow="Our story" title={<span id="story-title">The Arjuna Book of World Record story</span>} />
             <Reveal delay={0.1}>
               {settings ? (
                 <Paragraphs text={settings.about_story ?? settings.about_summary} className="mt-8 space-y-5 text-base leading-8 text-muted sm:text-lg" />
@@ -81,7 +84,7 @@ export default function AboutPage() {
             <div className="sticky top-28">
               <Media
                 src={settings?.about_image_url}
-                alt="Khelratna championship"
+                alt="Arjuna Book of World Record championship"
                 aspect="aspect-[4/5]"
                 className="rounded-3xl"
                 placeholderLabel="Organisation photo"
@@ -90,6 +93,8 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+
+      <IsbnSection className="bg-white" />
 
       {/* Mission & vision */}
       <section className="bg-paper py-24 lg:py-28" aria-label="Mission and vision">
@@ -108,7 +113,9 @@ export default function AboutPage() {
               >
                 <b.icon className={cn('size-8', b.dark ? 'text-gold-500' : 'text-red-600')} strokeWidth={1.5} aria-hidden />
                 <h2 className={cn('mt-8 font-display text-3xl font-bold uppercase', b.dark ? 'text-white' : 'text-navy-900')}>{b.title}</h2>
-                <p className={cn('mt-5 text-lg leading-8', b.dark ? 'text-white/70' : 'text-muted')}>{b.text || 'To be published by Khelratna.'}</p>
+                <p className={cn('mt-5 text-lg leading-8', b.dark ? 'text-white/70' : 'text-muted')}>
+                  {b.text || 'To be published by Arjuna Book of World Record.'}
+                </p>
               </article>
             </Reveal>
           ))}
@@ -220,7 +227,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership — only when Khelratna has published officials */}
+      {/* Leadership — only when Arjuna Book of World Record has published officials */}
       {!!about.data?.officials.length && (
         <section className="bg-paper py-24 lg:py-32" aria-labelledby="leadership-title">
           <div className="container-page">

@@ -15,7 +15,7 @@ export class AppError extends Error {
     if (err instanceof AppError) return err
     const e = err as { code?: string; message?: string; status?: number } | undefined
     const code = e?.code
-    console.error('[khelratna]', err)
+    console.error('[arjunabookofworldrecord]', err)
 
     if (code === '23505') return new AppError('An entry with the same unique value (such as the slug or number) already exists.', code, err)
     if (code === '23503') return new AppError('This item is linked to other content and cannot be changed that way.', code, err)

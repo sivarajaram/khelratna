@@ -13,7 +13,7 @@ import {
   getAthleteSlugs,
 } from '@/services/content'
 import type { Competition } from '@/types/database'
-import { formatDateRange, truncate } from '@/utils/format'
+import { formatDateRange, splitPhones, truncate } from '@/utils/format'
 import { cn } from '@/utils/cn'
 import { Seo, absoluteUrl } from '@/components/common/Seo'
 import { SectionHeader } from '@/components/common/SectionHeader'
@@ -27,6 +27,8 @@ import { AwardCard, ChampionCard, NewsCard, RecordCard } from '@/components/publ
 import { StatCounter } from '@/components/public/StatCounter'
 import { GalleryGrid } from '@/components/public/GalleryGrid'
 import { HomeHero } from './home/HomeHero'
+import { IsbnSection } from '@/components/public/IsbnSection'
+import { publicationJsonLd } from '@/config/publication'
 
 function daysUntil(date: string | null): number | null {
   if (!date) return null
@@ -41,20 +43,25 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'SportsOrganization',
-          name: settings?.org_name ?? 'Khelratna',
-          sport: 'Karate',
-          url: absoluteUrl('/'),
-          ...(settings?.logo_url ? { logo: settings.logo_url } : {}),
-          ...(settings?.email ? { email: settings.email } : {}),
-          ...(settings?.phone ? { telephone: settings.phone } : {}),
-        }}
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SportsOrganization',
+            name: settings?.org_name ?? 'Arjuna Book of World Record',
+            sport: 'Karate',
+            url: absoluteUrl('/'),
+            ...(settings?.logo_url ? { logo: settings.logo_url } : {}),
+            ...(settings?.email ? { email: settings.email } : {}),
+            ...(settings?.phone ? { telephone: splitPhones(settings.phone) } : {}),
+            ...(settings?.logo_url ? {} : { logo: absoluteUrl('/logo.png') }),
+          },
+          publicationJsonLd,
+        ]}
       />
       <HomeHero image={settings?.hero_image_url} featured={featured.data} />
       <StatsBand />
       <AboutSection />
+      <IsbnSection />
       <FeaturedCompetitionSection competition={featured.data} loading={featured.loading && featured.data === undefined} />
       <ShowcaseSection excludeId={featured.data?.id} ready={featured.data !== undefined || !!featured.error} />
       <RecordsSection />
@@ -73,7 +80,7 @@ function StatsBand() {
   const stats = settings?.stats ?? []
   if (!loading && !stats.length) return null
   return (
-    <section aria-label="Khelratna in numbers" className="relative z-10 bg-white lg:bg-transparent">
+    <section aria-label="Arjuna Book of World Record in numbers" className="relative z-10 bg-white lg:bg-transparent">
       <div className="container-page lg:-mt-16">
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-line shadow-[0_30px_60px_-30px_rgba(11,31,51,0.35)] ring-1 ring-line lg:grid-cols-4">
           {loading && !stats.length
@@ -105,7 +112,7 @@ function AboutSection() {
           <div className="absolute -top-4 -left-4 h-2/3 w-2/3 rounded-3xl bg-paper" aria-hidden />
           <Media
             src={settings?.about_image_url}
-            alt="Khelratna championship ceremony"
+            alt="Arjuna Book of World Record championship ceremony"
             aspect="aspect-[5/6]"
             className="relative rounded-3xl"
             placeholderLabel="Organisation photo"
@@ -120,7 +127,7 @@ function AboutSection() {
 
         <div>
           <SectionHeader
-            eyebrow="About Khelratna"
+            eyebrow="About Arjuna Book of World Record"
             title={
               <>
                 Built on discipline.
@@ -256,7 +263,7 @@ function ShowcaseSection({ excludeId, ready }: { excludeId?: string; ready: bool
           tone="dark"
           eyebrow="Championships"
           title={<span id="showcase-title">Stages built for champions</span>}
-          description="Every Khelratna championship is organised to one standard: fair judging, clear categories and a stage worthy of the athletes who compete."
+          description="Every Arjuna Book of World Record championship is organised to one standard: fair judging, clear categories and a stage worthy of the athletes who compete."
           action={
             <LinkButton to="/competitions" variant="outline-light" iconRight={<ArrowRight className="size-4" aria-hidden />}>
               Explore competitions
@@ -325,7 +332,7 @@ function RecordsSection() {
               Records that <span className="text-gold-300">made history</span>
             </span>
           }
-          description="Showcasing Khelratna’s documented world records and extraordinary achievements."
+          description="Showcasing Arjuna Book of World Record’s documented world records and extraordinary achievements."
         />
         <div className="mt-14">
           <QueryBoundary
@@ -390,7 +397,7 @@ function ChampionsSection() {
             empty={
               <EmptyState
                 title="No champions published yet"
-                description="Winners from Khelratna championships will appear here."
+                description="Winners from Arjuna Book of World Record championships will appear here."
                 icon={<Medal className="size-5" />}
               />
             }
@@ -541,14 +548,14 @@ function FinalCta() {
             Be part of the next championship
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-            Discover Khelratna competitions, achievements and the athletes who continue to raise the standard of Karate excellence.
+            Discover Arjuna Book of World Record competitions, achievements and the athletes who continue to raise the standard of Karate excellence.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <LinkButton to="/competitions" size="lg" iconRight={<ArrowRight className="size-4" aria-hidden />}>
               Explore competitions
             </LinkButton>
             <LinkButton to="/contact" size="lg" variant="outline-light" icon={<Users className="size-4" aria-hidden />}>
-              Contact Khelratna
+              Contact Arjuna Book of World Record
             </LinkButton>
           </div>
         </Reveal>

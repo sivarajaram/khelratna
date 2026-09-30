@@ -34,7 +34,7 @@ const competitions: ResourceConfig = {
   statusOptions: opts('draft', 'upcoming', 'ongoing', 'completed', 'cancelled'),
   archive: { field: 'is_archived', value: true, restore: false },
   publicPath: (r) => (r.status !== 'draft' && !r.is_archived ? `/competitions/${r.slug}` : null),
-  defaults: { status: 'draft', is_archived: false, is_featured: false, categories: [], documents: [], organizer: 'Khelratna' },
+  defaults: { status: 'draft', is_archived: false, is_featured: false, categories: [], documents: [], organizer: 'Arjuna Book of World Record' },
   fields: [
     { section: 'Basics', name: 'name', label: 'Competition name', type: 'text', required: true, full: true, maxLength: 160 },
     { name: 'slug', label: 'URL slug', type: 'slug', slugFrom: 'name', help: 'Used in the page address: /competitions/your-slug' },
@@ -54,7 +54,6 @@ const competitions: ResourceConfig = {
     { name: 'venue', label: 'Venue', type: 'text' },
     { name: 'location', label: 'Location', type: 'text', placeholder: 'City, State, Country' },
     { name: 'organizer', label: 'Organiser', type: 'text' },
-    { name: 'registration_url', label: 'Registration link', type: 'url', help: 'Optional. Shown only for upcoming competitions.' },
     {
       section: 'Description',
       name: 'short_description',
@@ -195,7 +194,7 @@ const worldRecords: ResourceConfig = {
   table: 'world_records',
   singular: 'World Record',
   plural: 'World Records',
-  description: 'Only records documented and verified by Khelratna, with the recognising organisation and evidence.',
+  description: 'Only records documented and verified by Arjuna Book of World Record, with the recognising organisation and evidence.',
   icon: Trophy,
   titleField: 'title',
   searchColumns: ['title', 'holder_name', 'location'],

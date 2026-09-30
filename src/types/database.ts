@@ -108,7 +108,6 @@ export interface Competition extends Timestamps {
   awards_info: string | null
   results_summary: string | null
   documents: DocumentLink[]
-  registration_url: string | null
 }
 
 export interface Athlete extends Timestamps {

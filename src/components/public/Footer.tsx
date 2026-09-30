@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { Logo } from '@/components/common/Logo'
+import { publication } from '@/config/publication'
+import { splitPhones, telHref } from '@/utils/format'
 import { SocialIcon, socialLabels } from '@/components/common/SocialIcon'
 import { useSiteSettings } from '@/hooks/useSiteSettings'
 
@@ -10,7 +12,7 @@ const columns = [
   {
     title: 'About',
     links: [
-      { to: '/about', label: 'About Khelratna' },
+      { to: '/about', label: 'About Us' },
       { to: '/about#mission', label: 'Mission' },
       { to: '/about#vision', label: 'Vision' },
       { to: '/certificates', label: 'Verify a Certificate' },
@@ -32,7 +34,7 @@ const columns = [
 export function Footer() {
   const { settings, social } = useSiteSettings()
   const year = new Date().getFullYear()
-  const org = settings?.org_name ?? 'Khelratna'
+  const org = settings?.org_name ?? 'Arjuna Book of World Record'
 
   return (
     <footer className="relative overflow-hidden bg-navy-950 text-white">
@@ -41,6 +43,10 @@ export function Footer() {
         <div className="lg:col-span-4">
           <Logo logoUrl={settings?.logo_url} name={org} tone="light" />
           {settings?.footer_text && <p className="mt-6 max-w-sm text-sm leading-6 text-white/60">{settings.footer_text}</p>}
+          <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-gold-500/30 px-3.5 py-1.5 text-xs text-gold-100">
+            <span className="font-semibold tracking-[0.14em] text-gold-300 uppercase">ISBN</span>
+            <span className="tabular-nums">{publication.isbn}</span>
+          </p>
           {social.length > 0 && (
             <ul className="mt-8 flex gap-2.5" aria-label="Social media">
               {social.map((s) => (
@@ -87,9 +93,13 @@ export function Footer() {
             {settings?.phone && (
               <li className="flex gap-3">
                 <Phone className="mt-0.5 size-4 shrink-0 text-white/40" aria-hidden />
-                <a href={`tel:${settings.phone.replace(/\s/g, '')}`} className="hover:text-white">
-                  {settings.phone}
-                </a>
+                <span className="flex flex-col gap-1">
+                  {splitPhones(settings.phone).map((p) => (
+                    <a key={p} href={telHref(p)} className="hover:text-white">
+                      {p}
+                    </a>
+                  ))}
+                </span>
               </li>
             )}
             {settings?.email && (

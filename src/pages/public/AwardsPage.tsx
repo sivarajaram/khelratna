@@ -44,7 +44,7 @@ export default function AwardsPage() {
             <span className="text-gold-300">excellence</span>
           </>
         }
-        description="Honours received by Khelratna, and honours Khelratna has bestowed on the athletes, teams and people who raise the standard of the sport."
+        description="Honours received by Arjuna Book of World Record, and honours Arjuna Book of World Record has bestowed on the athletes, teams and people who raise the standard of the sport."
         crumbs={[{ label: 'Awards' }]}
       />
 

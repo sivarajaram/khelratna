@@ -57,7 +57,7 @@ export function HomeHero({ image, featured }: HomeHeroProps) {
             transition={{ duration: 0.8, delay: 0.4, ease }}
             className="mt-8 max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8"
           >
-            Khelratna celebrates Karate excellence through competitions, championships, recognition, achievements and extraordinary sporting accomplishments.
+            Arjuna Book of World Record celebrates Karate excellence through competitions, championships, recognition, achievements and extraordinary sporting accomplishments.
           </motion.p>
 
           <motion.div
@@ -93,7 +93,7 @@ export function HomeHero({ image, featured }: HomeHeroProps) {
             <div className="absolute -inset-3 rounded-[2rem] border border-gold-500/25" aria-hidden />
             <Media
               src={image}
-              alt="Karate athlete competing at a Khelratna championship"
+              alt="Karate athlete competing at a Arjuna Book of World Record championship"
               aspect="aspect-[4/5]"
               className="rounded-[1.6rem] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.7)]"
               priority

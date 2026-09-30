@@ -1,6 +1,6 @@
-# Khelratna — Karate Championships, Recognition & Achievement
+# Arjuna Book of World Record — Karate Championships, Recognition & Achievement
 
-Public website + admin CMS for Khelratna, a Karate competition, awards and recognition organisation.
+Public website + admin CMS for Arjuna Book of World Record, a Karate competition, awards and recognition organisation.
 
 **Stack:** React 19 · Vite · TypeScript · Tailwind CSS 4 · React Router 7 · Framer Motion · Lucide · React Hook Form + Zod · Supabase (Postgres, Auth, Storage, RLS, one Edge Function)
 
@@ -11,7 +11,7 @@ npm install
 npm run dev          # http://localhost:5173
 ```
 
-Without Supabase credentials the site runs in **demo mode**: a gold banner is shown, all content is clearly marked placeholder data stored in your browser, and the admin panel works at `/admin/login` with `admin@khelratna.demo` / `demo1234`. "Reset demo data" in the admin header restores the placeholders.
+Without Supabase credentials the site runs in **demo mode**: a gold banner is shown, all content is clearly marked placeholder data stored in your browser, and the admin panel works at `/admin/login` with `admin@arjunabookofworldrecord.demo` / `demo1234`. "Reset demo data" in the admin header restores the placeholders.
 
 | Script | Purpose |
 | --- | --- |
@@ -66,9 +66,13 @@ scripts/              Sitemap generator
 
 Adding a field to a content type means updating the migration, `src/types/database.ts`, and the resource config in `src/admin/resources.tsx`. The admin form, validation and table follow from the config.
 
+## ISBN registration
+
+The official ISBN details (978-93-345-2761-2) shown on the homepage, About page and footer live in `src/config/publication.ts`; the barcode and the Acknowledgement Slip images are in `public/isbn/`.
+
 ## Content rules
 
-All names, dates, numbers, records and awards in demo mode are **placeholders**. Real content — especially world records and their recognising organisations, statistics, history and leadership — must come from Khelratna and is entered through the admin panel. The privacy policy and terms pages carry placeholder text that Khelratna must replace.
+All names, dates, numbers, records and awards in demo mode are **placeholders**. Real content — especially world records and their recognising organisations, statistics, history and leadership — must come from Arjuna Book of World Record and is entered through the admin panel. The privacy policy and terms pages carry placeholder text that Arjuna Book of World Record must replace.
 
 ## Deployment
 

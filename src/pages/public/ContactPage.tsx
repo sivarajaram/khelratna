@@ -12,6 +12,7 @@ import { FormField } from '@/components/common/FormField'
 import { Button } from '@/components/common/Button'
 import { SocialIcon, socialLabels } from '@/components/common/SocialIcon'
 import { whatsappHref } from '@/components/public/Footer'
+import { splitPhones, telHref } from '@/utils/format'
 
 const schema = z.object({
   name: z.string().trim().min(2, 'Please enter your name').max(120),
@@ -54,7 +55,7 @@ export default function ContactPage() {
   }
 
   const channels = [
-    settings?.phone && { icon: Phone, label: 'Phone', value: settings.phone, href: `tel:${settings.phone.replace(/\s/g, '')}` },
+    ...splitPhones(settings?.phone).map((p, i, all) => ({ icon: Phone, label: all.length > 1 ? `Phone ${i + 1}` : 'Phone', value: p, href: telHref(p) })),
     settings?.email && { icon: Mail, label: 'Email', value: settings.email, href: `mailto:${settings.email}` },
     settings?.whatsapp && { icon: MessageCircle, label: 'WhatsApp', value: settings.whatsapp, href: whatsappHref(settings.whatsapp) },
     settings?.address && { icon: MapPin, label: 'Address', value: settings.address },
@@ -62,7 +63,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Seo title="Contact" description="Contact Khelratna about championships, participation, recognition, sponsorship or media enquiries." />
+      <Seo title="Contact" description="Contact Arjuna Book of World Record about championships, participation, recognition, sponsorship or media enquiries." />
       <PageHero
         eyebrow="Contact"
         title="Get in touch"
@@ -73,7 +74,7 @@ export default function ContactPage() {
       <section className="py-16 lg:py-24">
         <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <h2 className="display-md text-navy-900">{settings?.org_name ?? 'Khelratna'}</h2>
+            <h2 className="display-md text-navy-900">{settings?.org_name ?? 'Arjuna Book of World Record'}</h2>
             <ul className="mt-8 divide-y divide-line rounded-2xl ring-1 ring-line">
               {channels.map((c) => (
                 <li key={c.label} className="flex gap-4 p-5">
@@ -101,7 +102,7 @@ export default function ContactPage() {
 
             {social.length > 0 && (
               <div className="mt-8">
-                <p className="text-xs font-semibold tracking-[0.14em] text-muted uppercase">Follow Khelratna</p>
+                <p className="text-xs font-semibold tracking-[0.14em] text-muted uppercase">Follow Arjuna Book of World Record</p>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {social.map((s) => (
                     <li key={s.id}>
@@ -123,7 +124,7 @@ export default function ContactPage() {
               <div className="mt-8 overflow-hidden rounded-2xl ring-1 ring-line">
                 <iframe
                   src={settings.map_embed_url}
-                  title="Map showing Khelratna’s location"
+                  title="Map showing Arjuna Book of World Record’s location"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="aspect-[4/3] w-full"
@@ -138,7 +139,9 @@ export default function ContactPage() {
                 <div className="py-10 text-center" role="status">
                   <CheckCircle2 className="mx-auto size-12 text-emerald-600" aria-hidden />
                   <h2 className="mt-5 font-display text-2xl font-semibold text-navy-900">Thank you — message received</h2>
-                  <p className="mx-auto mt-3 max-w-md text-muted">Your enquiry has been sent to the Khelratna team. We will get back to you by email.</p>
+                  <p className="mx-auto mt-3 max-w-md text-muted">
+                    Your enquiry has been sent to the Arjuna Book of World Record team. We will get back to you by email.
+                  </p>
                   <Button variant="outline" className="mt-8" onClick={() => setSent(false)}>
                     Send another message
                   </Button>

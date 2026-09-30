@@ -18,7 +18,7 @@ function loadEnv() {
 }
 
 const env = loadEnv()
-const site = (env.VITE_SITE_URL || 'https://www.khelratna.example').replace(/\/$/, '')
+const site = (env.VITE_SITE_URL || 'https://www.arjunabookofworldrecord.example').replace(/\/$/, '')
 const supabaseUrl = env.VITE_SUPABASE_URL
 const anonKey = env.VITE_SUPABASE_ANON_KEY
 

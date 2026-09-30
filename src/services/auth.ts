@@ -6,8 +6,8 @@ export interface AuthUser {
   email: string
 }
 
-const DEMO_KEY = 'khelratna-demo-session'
-export const DEMO_CREDENTIALS = { email: 'admin@khelratna.demo', password: 'demo1234' }
+const DEMO_KEY = 'arjunabookofworldrecord-demo-session'
+export const DEMO_CREDENTIALS = { email: 'admin@arjunabookofworldrecord.demo', password: 'demo1234' }
 const demoListeners = new Set<(u: AuthUser | null) => void>()
 
 function readDemoSession(): AuthUser | null {

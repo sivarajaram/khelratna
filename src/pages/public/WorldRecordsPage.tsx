@@ -20,7 +20,7 @@ export default function WorldRecordsPage() {
 
   return (
     <div className="bg-navy-950 text-white">
-      <Seo title="World Records" description="Documented Karate world records and extraordinary achievements recognised by Khelratna." />
+      <Seo title="World Records" description="Documented Karate world records and extraordinary achievements recognised by Arjuna Book of World Record." />
       <PageHero
         variant="prestige"
         eyebrow="World records"
@@ -37,7 +37,7 @@ export default function WorldRecordsPage() {
       >
         <p className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-2 text-xs text-gold-100">
           <ShieldCheck className="size-4 text-gold-300" aria-hidden />
-          Only records documented and verified by Khelratna are listed.
+          Only records documented and verified by Arjuna Book of World Record are listed.
         </p>
       </PageHero>
 

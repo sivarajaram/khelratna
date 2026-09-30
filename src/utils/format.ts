@@ -31,6 +31,20 @@ export function yearOf(value: string | null | undefined): number | null {
   return d ? d.getFullYear() : null
 }
 
+/** Splits a settings phone field holding several numbers ("94881 46504, 94886 64045"). */
+export function splitPhones(value: string | null | undefined): string[] {
+  return (value ?? '')
+    .split(/[,;/]|\s+and\s+/i)
+    .map((p) => p.trim())
+    .filter(Boolean)
+}
+
+/** tel: link target; bare 10-digit Indian mobile numbers get the +91 prefix. */
+export const telHref = (phone: string) => {
+  const digits = phone.replace(/[^\d+]/g, '')
+  return `tel:${/^\d{10}$/.test(digits) ? `+91${digits}` : digits}`
+}
+
 export function slugify(input: string): string {
   return input
     .toLowerCase()

@@ -44,7 +44,7 @@ export const absoluteUrl = (path: string) => `${env.siteUrl || window.location.o
 export function Seo({ title, description, image, type = 'website', path, noindex, jsonLd }: SeoProps) {
   const { settings } = useSiteSettings()
   const location = useLocation()
-  const org = settings?.org_name ?? 'Khelratna'
+  const org = settings?.org_name ?? 'Arjuna Book of World Record'
   const fullTitle = title ? `${title} | ${org}` : (settings?.seo_title ?? org)
   const desc = description ?? settings?.seo_description ?? ''
   const canonical = absoluteUrl(path ?? location.pathname)

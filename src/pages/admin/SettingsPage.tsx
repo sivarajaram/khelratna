@@ -8,6 +8,7 @@ import { invalidateQueries, useQuery } from '@/hooks/useQuery'
 import { useSiteSettings } from '@/hooks/useSiteSettings'
 import { repo } from '@/services/repository'
 import { errorMessage } from '@/services/errors'
+import { splitPhones } from '@/utils/format'
 import { PageHeader } from '@/components/admin/PageHeader'
 import { ImageInput } from '@/components/admin/Inputs'
 import { FormField } from '@/components/common/FormField'
@@ -21,17 +22,23 @@ const optionalUrl = z
   .string()
   .trim()
   .refine((v) => !v || /^(https?:\/\/|\/|data:)/i.test(v), 'Enter a full URL starting with https://')
+const PHONE = /^\+?[\d\s()-]{7,20}$/
 const phone = z
   .string()
   .trim()
-  .refine((v) => !v || /^\+?[\d\s()-]{7,20}$/.test(v), 'Enter a valid phone number')
+  .refine((v) => !v || PHONE.test(v), 'Enter a valid phone number')
+// The main phone field may hold several numbers separated by commas
+const phones = z
+  .string()
+  .trim()
+  .refine((v) => !v || splitPhones(v).every((p) => PHONE.test(p)), 'Enter valid phone numbers, separated by commas')
 
 const schema = z.object({
   org_name: z.string().trim().min(2, 'Organisation name is required').max(80),
   tagline: optionalText(160),
   logo_url: optionalUrl,
   favicon_url: optionalUrl,
-  phone,
+  phone: phones,
   email: z
     .string()
     .trim()
@@ -119,7 +126,7 @@ export default function SettingsPage() {
     const s = q.data.settings
     const str = (v: string | null | undefined) => v ?? ''
     reset({
-      org_name: s?.org_name ?? 'Khelratna',
+      org_name: s?.org_name ?? 'Arjuna Book of World Record',
       tagline: str(s?.tagline),
       logo_url: str(s?.logo_url),
       favicon_url: str(s?.favicon_url),
@@ -226,12 +233,12 @@ export default function SettingsPage() {
         <Section title="Organisation">
           {text('org_name', 'Organisation name')}
           {text('tagline', 'Tagline')}
-          {image('logo_url', 'Logo', 'Optional. When empty, the built-in Khelratna emblem is used.')}
+          {image('logo_url', 'Logo', 'Optional. When empty, the built-in Arjuna Book of World Record emblem is used.')}
           {image('favicon_url', 'Favicon', 'Square image, at least 64×64.')}
         </Section>
 
         <Section title="Contact details" description="Shown in the footer and on the contact page. Leave a field empty to hide it.">
-          {text('phone', 'Phone', { type: 'tel' })}
+          {text('phone', 'Phone numbers', { hint: 'Separate multiple numbers with commas.' })}
           {text('email', 'Email', { type: 'email' })}
           {text('whatsapp', 'WhatsApp number', { type: 'tel', hint: 'Include the country code, e.g. +91…' })}
           {text('map_embed_url', 'Google Maps embed URL', { hint: 'Google Maps › Share › Embed a map › copy the src URL.' })}
@@ -246,7 +253,9 @@ export default function SettingsPage() {
 
         <fieldset className="rounded-xl border border-line bg-white p-5 sm:p-6">
           <legend className="-ml-1 px-1 font-display text-sm font-semibold text-ink">Homepage statistics</legend>
-          <p className="-mt-1 mb-4 text-sm text-muted">Up to 4 figures shown below the hero. Only publish numbers Khelratna can stand behind.</p>
+          <p className="-mt-1 mb-4 text-sm text-muted">
+            Up to 4 figures shown below the hero. Only publish numbers Arjuna Book of World Record can stand behind.
+          </p>
           <div className="space-y-3">
             {stats.fields.map((f, i) => (
               <div key={f.id} className="grid grid-cols-[1fr_6rem_4rem_auto] items-start gap-2 sm:grid-cols-[1fr_8rem_5rem_auto]">

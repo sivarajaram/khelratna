@@ -29,7 +29,7 @@ export default function GalleryPage() {
 
   return (
     <>
-      <Seo title="Gallery" description="Photographs and videos from Khelratna Karate championships, award ceremonies, champions and world record moments." />
+      <Seo title="Gallery" description="Photographs and videos from Arjuna Book of World Record Karate championships, award ceremonies, champions and world record moments." />
       <PageHero
         eyebrow="Gallery"
         title="Moments that matter"

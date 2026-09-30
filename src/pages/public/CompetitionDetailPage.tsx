@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router'
-import { ArrowRight, Building2, CalendarDays, FileText, Flag, Globe2, Images, MapPin, Medal, Trophy, Users } from 'lucide-react'
+import { Building2, CalendarDays, FileText, Flag, Globe2, Images, MapPin, Medal, Trophy, Users } from 'lucide-react'
 import type { Champion } from '@/types/database'
 import { useQuery } from '@/hooks/useQuery'
 import { getAthleteSlugs, getCompetition, listCompetitionResults, listGallery } from '@/services/content'
@@ -40,7 +40,7 @@ export default function CompetitionDetailPage() {
             eventStatus: c.status === 'cancelled' ? 'https://schema.org/EventCancelled' : 'https://schema.org/EventScheduled',
             ...(c.venue || c.location ? { location: { '@type': 'Place', name: c.venue ?? c.location, address: c.location ?? undefined } } : {}),
             ...(c.cover_image_url ? { image: c.cover_image_url } : {}),
-            organizer: { '@type': 'SportsOrganization', name: c.organizer ?? 'Khelratna' },
+            organizer: { '@type': 'SportsOrganization', name: c.organizer ?? 'Arjuna Book of World Record' },
           }}
         />
       )}
@@ -117,11 +117,6 @@ export default function CompetitionDetailPage() {
                         </div>
                       ))}
                   </dl>
-                  {c.registration_url && c.status === 'upcoming' && (
-                    <LinkButton to={c.registration_url} external className="mt-6 w-full" iconRight={<ArrowRight className="size-4" aria-hidden />}>
-                      Register
-                    </LinkButton>
-                  )}
                   {c.documents.length > 0 && (
                     <div className="mt-6 border-t border-white/10 pt-6">
                       <h3 className="text-xs font-semibold tracking-[0.18em] text-white/50 uppercase">Documents</h3>

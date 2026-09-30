@@ -1,7 +1,7 @@
 // =====================================================================
 // PLACEHOLDER CONTENT — DEMO MODE ONLY
 // Every name, date, place, number and record below is a stand-in used to
-// preview the design. None of it is real Khelratna information. It is never
+// preview the design. None of it is real Arjuna Book of World Record information. It is never
 // written to Supabase; real content is entered through the admin panel.
 // =====================================================================
 import type {
@@ -28,26 +28,26 @@ const id = (prefix: string, n: number) => `00000000-0000-4000-8000-${prefix}${St
 
 const settings: SiteSettings = {
   id: 1,
-  org_name: 'Khelratna',
+  org_name: 'Arjuna Book of World Record',
   tagline: 'Karate championships, recognition and achievement.',
   logo_url: null,
   favicon_url: null,
-  phone: '+91 00000 00000',
-  email: 'info@khelratna.example',
-  whatsapp: '+91 00000 00000',
+  phone: '94881 46504, 94886 64045',
+  email: null,
+  whatsapp: null,
   address: '[Placeholder address] City, State, India',
   map_embed_url: null,
-  footer_text: 'Khelratna celebrates Karate excellence through competitions, championships, recognition and extraordinary sporting accomplishments.',
-  seo_title: 'Khelratna | Karate Championships, Champions & Recognition',
+  footer_text: 'Arjuna Book of World Record celebrates Karate excellence through competitions, championships, recognition and extraordinary sporting accomplishments.',
+  seo_title: 'Arjuna Book of World Record | Karate Championships, Champions & Recognition',
   seo_description:
-    'Khelratna celebrates Karate excellence through competitions, championships, recognition, achievements and extraordinary sporting accomplishments.',
+    'Arjuna Book of World Record celebrates Karate excellence through competitions, championships, recognition, achievements and extraordinary sporting accomplishments.',
   og_image_url: null,
   hero_image_url: null,
   about_image_url: null,
   about_summary:
-    '[Placeholder] Khelratna is a Karate organisation that conducts championships, recognises athletes and celebrates achievement in the sport. Replace this summary with Khelratna’s own introduction from Admin › Site Settings.',
+    '[Placeholder] Arjuna Book of World Record is a Karate organisation that conducts championships, recognises athletes and celebrates achievement in the sport. Replace this summary with Arjuna Book of World Record’s own introduction from Admin › Site Settings.',
   about_story:
-    '[Placeholder] This is where Khelratna’s own story will appear — how the organisation began, the championships it has built and the athletes it has recognised.\n\nAll history, dates and achievements on this page must come from Khelratna. Edit this text in Admin › Site Settings.',
+    '[Placeholder] This is where Arjuna Book of World Record’s own story will appear — how the organisation began, the championships it has built and the athletes it has recognised.\n\nAll history, dates and achievements on this page must come from Arjuna Book of World Record. Edit this text in Admin › Site Settings.',
   mission: '[Placeholder] To conduct fair, well-organised Karate championships and give every athlete a stage on which discipline becomes achievement.',
   vision: '[Placeholder] To be a trusted name in Karate competition and recognition, nationally and internationally.',
   core_values: [
@@ -74,10 +74,10 @@ const social: SocialLink[] = [
 ]
 
 const milestones: Milestone[] = [
-  ['milestone', 'Organisation founded', 'Placeholder milestone — replace with Khelratna’s founding year and story.'],
-  ['championship', 'First championship conducted', 'Placeholder — the first Khelratna championship.'],
+  ['milestone', 'Organisation founded', 'Placeholder milestone — replace with Arjuna Book of World Record’s founding year and story.'],
+  ['championship', 'First championship conducted', 'Placeholder — the first Arjuna Book of World Record championship.'],
   ['recognition', 'Major recognition received', 'Placeholder — a significant recognition for the organisation.'],
-  ['world-record', 'World record moment', 'Placeholder — only verified records supplied by Khelratna belong here.'],
+  ['world-record', 'World record moment', 'Placeholder — only verified records supplied by Arjuna Book of World Record belong here.'],
   ['international', 'International participation', 'Placeholder — the first international edition or delegation.'],
 ].map(([kind, title, description], i) => ({
   id: id('61', i + 1),
@@ -112,20 +112,19 @@ const competitions: Competition[] = compSeeds.map(([slug, name, level, status, s
   end_date: end,
   venue: 'Sample Indoor Stadium',
   location: ['City A, India', 'City B, India', 'City C, India'][i % 3],
-  organizer: 'Khelratna',
+  organizer: 'Arjuna Book of World Record',
   status,
   is_archived: false,
   is_featured: Boolean(featured),
   short_description: 'Placeholder description. A championship bringing together Kata and Kumite athletes across age groups and weight categories.',
   description:
-    '[Placeholder] Detailed information about this championship will appear here — its format, the categories contested, rules, schedule and what makes this edition significant.\n\nReplace this text with official Khelratna information from the admin panel.',
+    '[Placeholder] Detailed information about this championship will appear here — its format, the categories contested, rules, schedule and what makes this edition significant.\n\nReplace this text with official Arjuna Book of World Record information from the admin panel.',
   categories: ['Individual Kata', 'Team Kata', 'Kumite -60kg', 'Kumite -75kg', 'Kumite +75kg', 'Under-14', 'Under-18', 'Senior'],
   participant_count: status === 'completed' ? 400 + i * 50 : null,
   countries_count: level === 'International' ? 8 : null,
   awards_info: 'Medals and certificates for podium finishers in every category (placeholder).',
   results_summary: status === 'completed' ? 'Placeholder results summary.' : null,
   documents: status === 'upcoming' ? [{ name: 'Championship circular (sample)', url: '#' }] : [],
-  registration_url: null,
   ...stamps,
 }))
 
@@ -139,7 +138,7 @@ const athletes: Athlete[] = athleteNames.map((name, i) => ({
   country: 'India',
   gender: i % 2 === 0 ? 'female' : 'male',
   category: athleteCats[i],
-  biography: '[Placeholder] Athlete biography — competitive background, style and journey in Karate. Real athlete profiles are added by Khelratna staff.',
+  biography: '[Placeholder] Athlete biography — competitive background, style and journey in Karate. Real athlete profiles are added by Arjuna Book of World Record staff.',
   gold_count: 6 - i,
   silver_count: 2 + (i % 3),
   bronze_count: 1 + (i % 2),
@@ -179,9 +178,9 @@ const records: WorldRecord[] = [1, 2, 3].map((n) => ({
   slug: `sample-world-record-${n}`,
   title: `Sample World Record Title ${n}`,
   description:
-    'Placeholder. Only world records documented and verified by Khelratna will be displayed here, with the recognising organisation and supporting evidence.',
+    'Placeholder. Only world records documented and verified by Arjuna Book of World Record will be displayed here, with the recognising organisation and supporting evidence.',
   story:
-    '[Placeholder] The story behind this achievement — the preparation, the attempt and the moment it was confirmed.\n\nThis text, the record title, the recognising organisation and all evidence must be supplied by Khelratna.',
+    '[Placeholder] The story behind this achievement — the preparation, the attempt and the moment it was confirmed.\n\nThis text, the record title, the recognising organisation and all evidence must be supplied by Arjuna Book of World Record.',
   athlete_id: athletes[n - 1].id,
   holder_name: athletes[n - 1].name,
   record_date: `202${3 + n}-0${n + 2}-15`,
@@ -199,11 +198,11 @@ const records: WorldRecord[] = [1, 2, 3].map((n) => ({
 }))
 
 const awardSeeds: [Award['category'], string, string][] = [
-  ['organization', 'Sample Organisation Award', 'Khelratna'],
+  ['organization', 'Sample Organisation Award', 'Arjuna Book of World Record'],
   ['athlete', 'Sample Athlete of the Year', 'Sample Athlete 01'],
   ['championship', 'Sample Best Performing Team', 'Sample Karate Club'],
   ['special', 'Sample Special Recognition', 'Sample Official'],
-  ['international', 'Sample International Recognition', 'Khelratna'],
+  ['international', 'Sample International Recognition', 'Arjuna Book of World Record'],
   ['athlete', 'Sample Rising Athlete Award', 'Sample Athlete 04'],
 ]
 const awards: Award[] = awardSeeds.map(([category, name, recipient], i) => ({
@@ -226,7 +225,7 @@ const gallery: GalleryItem[] = Array.from({ length: 15 }, (_, i) => ({
   media_type: 'image',
   url: '',
   thumbnail_url: null,
-  caption: `Placeholder photo ${i + 1} — replace with Khelratna photography`,
+  caption: `Placeholder photo ${i + 1} — replace with Arjuna Book of World Record photography`,
   alt: 'Placeholder image',
   category: galleryCats[i % galleryCats.length],
   competition_id: competitions[3 + (i % 3)].id,
@@ -248,10 +247,10 @@ const news: NewsArticle[] = newsSeeds.map(([category, title], i) => ({
   title,
   category,
   cover_image_url: null,
-  excerpt: 'Placeholder excerpt. News articles are written and published by Khelratna staff from the admin panel.',
+  excerpt: 'Placeholder excerpt. News articles are written and published by Arjuna Book of World Record staff from the admin panel.',
   content:
-    '## Placeholder article\n\nThis is **sample content** used to preview the news layout. Replace it with a real Khelratna article.\n\n- Paragraphs, headings and lists are supported\n- Links like [our competitions](/competitions) work too\n\n> Quotes can highlight words from officials or athletes.\n\nArticles are written in a simple formatting syntax in the admin panel.',
-  author: 'Khelratna Media Team',
+    '## Placeholder article\n\nThis is **sample content** used to preview the news layout. Replace it with a real Arjuna Book of World Record article.\n\n- Paragraphs, headings and lists are supported\n- Links like [our competitions](/competitions) work too\n\n> Quotes can highlight words from officials or athletes.\n\nArticles are written in a simple formatting syntax in the admin panel.',
+  author: 'Arjuna Book of World Record Media Team',
   publish_date: `2026-0${8 - i}-1${i}T09:00:00.000Z`,
   seo_title: null,
   seo_description: null,
@@ -301,7 +300,7 @@ const enquiries: Enquiry[] = [
   },
 ]
 
-const admins: AdminUser[] = [{ user_id: 'demo-admin', email: 'admin@khelratna.demo', full_name: 'Demo Administrator', role: 'admin', created_at: T }]
+const admins: AdminUser[] = [{ user_id: 'demo-admin', email: 'admin@arjunabookofworldrecord.demo', full_name: 'Demo Administrator', role: 'admin', created_at: T }]
 
 export const demoData: Record<TableName, Record<string, unknown>[]> = {
   site_settings: [settings],

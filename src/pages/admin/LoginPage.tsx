@@ -37,7 +37,7 @@ export default function LoginPage() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) })
 
   useEffect(() => {
-    document.title = 'Admin login | Khelratna'
+    document.title = 'Admin login | Arjuna Book of World Record'
   }, [])
 
   useEffect(() => {
@@ -82,9 +82,9 @@ export default function LoginPage() {
             <br />
             management
           </p>
-          <p className="mt-4 max-w-sm text-white/60">Manage competitions, champions, records, awards, gallery and news for the Khelratna website.</p>
+          <p className="mt-4 max-w-sm text-white/60">Manage competitions, champions, records, awards, gallery and news for the Arjuna Book of World Record website.</p>
         </div>
-        <p className="relative text-xs text-white/40">Authorised Khelratna staff only.</p>
+        <p className="relative text-xs text-white/40">Authorised Arjuna Book of World Record staff only.</p>
       </div>
 
       <main className="flex items-center justify-center bg-paper p-6">
@@ -96,7 +96,7 @@ export default function LoginPage() {
             <Logo />
           </div>
           <h1 className="mt-6 font-display text-2xl font-semibold text-ink lg:mt-0">Sign in to admin</h1>
-          <p className="mt-1 text-sm text-muted">Use your Khelratna administrator account.</p>
+          <p className="mt-1 text-sm text-muted">Use your Arjuna Book of World Record administrator account.</p>
 
           {isDemoMode && (
             <div className="mt-6 flex gap-3 rounded-xl bg-gold-50 p-4 text-sm text-gold-700 ring-1 ring-gold-500/30">

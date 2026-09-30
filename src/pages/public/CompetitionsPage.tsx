@@ -45,7 +45,7 @@ export default function CompetitionsPage() {
 
   return (
     <>
-      <Seo title="Competitions" description="Upcoming, ongoing and completed Karate championships and competitions conducted by Khelratna." />
+      <Seo title="Competitions" description="Upcoming, ongoing and completed Karate championships and competitions conducted by Arjuna Book of World Record." />
       <PageHero
         variant="ink"
         eyebrow="Championships"
@@ -55,7 +55,7 @@ export default function CompetitionsPage() {
             <br />& competitions
           </>
         }
-        description="From national stages to international opens — every Khelratna championship, past and upcoming."
+        description="From national stages to international opens — every Arjuna Book of World Record championship, past and upcoming."
         crumbs={[{ label: 'Competitions' }]}
       >
         {index.data && (
