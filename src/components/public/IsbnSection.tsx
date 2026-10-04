@@ -51,7 +51,7 @@ export function IsbnSection({ className }: { className?: string }) {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-8 inline-flex items-center gap-4 rounded-2xl bg-navy-900 px-6 py-4 text-white shadow-[0_20px_40px_-20px_rgba(11,31,51,0.6)]">
+            <div className="mt-8 inline-flex items-center gap-4 rounded-2xl bg-navy-900 px-6 py-4 text-white shadow-[0_20px_40px_-20px_rgba(20,42,49,0.6)]">
               <BadgeCheck className="size-7 shrink-0 text-gold-500" aria-hidden />
               <div>
                 <p className="text-[0.6875rem] font-semibold tracking-[0.2em] text-gold-300 uppercase">ISBN</p>
@@ -85,7 +85,7 @@ export function IsbnSection({ className }: { className?: string }) {
               <button
                 type="button"
                 onClick={() => setOpen(0)}
-                className="group relative block w-full focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-red-600"
+                className="group relative block w-full focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent-600"
                 aria-label="Enlarge the ISBN acknowledgement slip"
               >
                 <img src={pub.images.acknowledgement} alt={slipItem.alt ?? ''} loading="lazy" className="w-full" />

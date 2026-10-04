@@ -101,14 +101,14 @@ export function FilterBar({ chips, selects = [], onSelect = () => {}, search, on
             >
               <SlidersHorizontal className="size-4" aria-hidden />
               Filters
-              {selectActive > 0 && <span className="grid size-5 place-items-center rounded-full bg-red-600 text-[0.65rem] text-white">{selectActive}</span>}
+              {selectActive > 0 && <span className="grid size-5 place-items-center rounded-full bg-accent-600 text-[0.65rem] text-white">{selectActive}</span>}
             </button>
           )}
 
           <div className="flex items-center justify-between gap-4 md:ml-auto">
             {resultLabel && <p className="text-sm text-muted">{resultLabel}</p>}
             {onReset && activeCount > 0 && (
-              <button onClick={onReset} className="inline-flex items-center gap-1 text-sm font-medium text-red-600 hover:text-red-700">
+              <button onClick={onReset} className="inline-flex items-center gap-1 text-sm font-medium text-accent-600 hover:text-accent-700">
                 <X className="size-3.5" aria-hidden /> Clear filters
               </button>
             )}

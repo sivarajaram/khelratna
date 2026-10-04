@@ -16,6 +16,7 @@ import { LinkButton } from '@/components/common/Button'
 import { AwardCard } from '@/components/public/Cards'
 import { StatCounter } from '@/components/public/StatCounter'
 import { IsbnSection } from '@/components/public/IsbnSection'
+import { publicationJsonLd } from '@/config/publication'
 
 const valueIcons = [ShieldCheck, Star, Trophy, Users, Medal, Sparkles]
 
@@ -36,6 +37,7 @@ export default function AboutPage() {
     <>
       <Seo
         title="About"
+        jsonLd={publicationJsonLd}
         description={
           settings?.about_summary ?? 'The story, mission and values of Arjuna Book of World Record, a Karate competition and recognition organisation.'
         }
@@ -111,7 +113,7 @@ export default function AboutPage() {
                   b.dark ? 'bg-navy-900 text-white' : 'bg-white ring-1 ring-line',
                 )}
               >
-                <b.icon className={cn('size-8', b.dark ? 'text-gold-500' : 'text-red-600')} strokeWidth={1.5} aria-hidden />
+                <b.icon className={cn('size-8', b.dark ? 'text-gold-500' : 'text-accent-600')} strokeWidth={1.5} aria-hidden />
                 <h2 className={cn('mt-8 font-display text-3xl font-bold uppercase', b.dark ? 'text-white' : 'text-navy-900')}>{b.title}</h2>
                 <p className={cn('mt-5 text-lg leading-8', b.dark ? 'text-white/70' : 'text-muted')}>
                   {b.text || 'To be published by Arjuna Book of World Record.'}
@@ -132,7 +134,7 @@ export default function AboutPage() {
                 const Icon = valueIcons[i % valueIcons.length]
                 return (
                   <li key={v.title} className="group bg-white p-8 transition hover:bg-navy-900 lg:p-10">
-                    <Icon className="size-7 text-red-600 transition group-hover:text-gold-500" strokeWidth={1.5} aria-hidden />
+                    <Icon className="size-7 text-accent-600 transition group-hover:text-gold-500" strokeWidth={1.5} aria-hidden />
                     <h3 className="mt-6 font-display text-xl font-bold text-navy-900 uppercase transition group-hover:text-white">{v.title}</h3>
                     {v.description && <p className="mt-3 text-sm leading-6 text-muted transition group-hover:text-white/65">{v.description}</p>}
                   </li>
@@ -166,7 +168,7 @@ export default function AboutPage() {
                         <span
                           className={cn(
                             'absolute top-1.5 left-0 size-[15px] rounded-full border-2 md:left-1/2 md:-translate-x-1/2',
-                            meta.gold ? 'border-gold-500 bg-gold-500/30' : 'border-red-600 bg-navy-950',
+                            meta.gold ? 'border-gold-500 bg-gold-500/30' : 'border-accent-600 bg-navy-950',
                           )}
                           aria-hidden
                         />

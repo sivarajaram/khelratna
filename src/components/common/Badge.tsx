@@ -2,12 +2,12 @@ import type { ReactNode } from 'react'
 import { cn } from '@/utils/cn'
 import type { CompetitionStatus, Medal } from '@/types/database'
 
-type Tone = 'neutral' | 'navy' | 'red' | 'gold' | 'green' | 'amber' | 'dark'
+type Tone = 'neutral' | 'navy' | 'accent' | 'gold' | 'green' | 'amber' | 'dark'
 
 const tones: Record<Tone, string> = {
   neutral: 'bg-paper text-muted ring-line',
   navy: 'bg-navy-50 text-navy-800 ring-navy-100',
-  red: 'bg-red-50 text-red-700 ring-red-600/15',
+  accent: 'bg-accent-50 text-accent-700 ring-accent-600/15',
   gold: 'bg-gold-50 text-gold-700 ring-gold-500/30',
   green: 'bg-emerald-50 text-emerald-700 ring-emerald-600/20',
   amber: 'bg-amber-50 text-amber-700 ring-amber-600/20',
@@ -32,14 +32,14 @@ export function Badge({ tone = 'neutral', children, className, dot }: { tone?: T
 const statusTone: Record<CompetitionStatus, Tone> = {
   draft: 'neutral',
   upcoming: 'navy',
-  ongoing: 'red',
+  ongoing: 'accent',
   completed: 'green',
   cancelled: 'neutral',
 }
 
 export function CompetitionStatusBadge({ status, onDark }: { status: CompetitionStatus; onDark?: boolean }) {
   return (
-    <Badge tone={onDark ? 'dark' : statusTone[status]} dot={status === 'ongoing'} className={status === 'ongoing' && onDark ? 'text-red-50' : ''}>
+    <Badge tone={onDark ? 'dark' : statusTone[status]} dot={status === 'ongoing'} className={status === 'ongoing' && onDark ? 'text-accent-50' : ''}>
       {status === 'ongoing' ? 'Live now' : status}
     </Badge>
   )

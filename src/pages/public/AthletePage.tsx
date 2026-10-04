@@ -47,10 +47,9 @@ export default function AthletePage() {
       {/* Athlete hero: portrait-led */}
       <section className="relative isolate overflow-hidden bg-navy-950 text-white">
         <div className="absolute inset-0 -z-10 bg-grain" aria-hidden />
-        <div className="absolute -top-32 left-1/3 -z-10 size-[40rem] rounded-full bg-navy-700/40 blur-3xl" aria-hidden />
         <div className="container-page grid items-end gap-10 pt-32 pb-16 lg:grid-cols-12 lg:pt-40 lg:pb-20">
           <Reveal className="lg:col-span-5">
-            <Media src={a.photo_url} alt={a.name} aspect="aspect-[4/5]" className="rounded-3xl" priority placeholderLabel="Athlete portrait" />
+            <Media src={a.photo_url} alt={a.name} aspect="aspect-[4/5]" className="rounded-3xl" priority placeholderLabel="Athlete portrait" tone="dark" />
           </Reveal>
           <div className="lg:col-span-7 lg:pb-6">
             <nav aria-label="Breadcrumb" className="mb-6 text-xs text-white/50">
@@ -125,7 +124,7 @@ export default function AthletePage() {
                 <ul className="mt-5 space-y-3">
                   {a.achievements.map((x) => (
                     <li key={x} className="flex gap-3 text-sm leading-6 text-ink/85">
-                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-red-600" aria-hidden />
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent-600" aria-hidden />
                       {x}
                     </li>
                   ))}

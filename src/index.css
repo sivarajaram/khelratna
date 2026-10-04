@@ -3,38 +3,45 @@
 @import 'tailwindcss';
 
 /* ------------------------------------------------------------------
-   Arjuna Book of World Record design tokens
-   Navy is the brand, white is the canvas, red is a controlled accent,
-   gold is reserved for records, awards and medals.
+   Design tokens: a restrained palette taken from the logo.
+   "navy-*"   muted petrol (the logo's blue-teal, desaturated): the one brand colour
+   "accent-*" same petrol family, used for buttons, links and small rules
+   gold       muted, reserved for records, awards and medals
+   "red-*"    errors and destructive actions only
+   Everything else is white and neutral grey.
    ------------------------------------------------------------------ */
 @theme {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Sora Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
 
-  --color-navy-950: #06121f;
-  --color-navy-900: #0b1f33;
-  --color-navy-800: #102a44;
-  --color-navy-700: #173858;
-  --color-navy-600: #214b73;
-  --color-navy-100: #e3ebf3;
-  --color-navy-50: #f1f5f9;
+  --color-navy-950: #142a31;
+  --color-navy-900: #1b3a44;
+  --color-navy-800: #24505c;
+  --color-navy-700: #2f6472;
+  --color-navy-600: #427986;
+  --color-navy-100: #e2eaec;
+  --color-navy-50: #f3f6f7;
 
-  --color-ink: #111111;
-  --color-paper: #f6f8fa;
-  --color-line: #e4e7ec;
-  --color-muted: #667085;
-  --color-muted-light: #98a2b3;
+  --color-ink: #16191b;
+  --color-paper: #f7f8f8;
+  --color-line: #e3e6e8;
+  --color-muted: #5f6b70;
+  --color-muted-light: #98a2a6;
+
+  --color-accent-700: #24505c;
+  --color-accent-600: #2f6472;
+  --color-accent-50: #eef3f4;
 
   --color-red-700: #a51f1f;
   --color-red-600: #c62828;
   --color-red-50: #fdf1f1;
 
-  --color-gold-700: #8a6d12;
-  --color-gold-600: #a8871a;
-  --color-gold-500: #c9a227;
-  --color-gold-300: #e3cb73;
-  --color-gold-100: #f7efd2;
-  --color-gold-50: #fbf7e9;
+  --color-gold-700: #6f5a1d;
+  --color-gold-600: #8a6e24;
+  --color-gold-500: #b0913f;
+  --color-gold-300: #d6bf82;
+  --color-gold-100: #efe7d2;
+  --color-gold-50: #f8f5ec;
 
   --color-silver: #9aa4b2;
   --color-bronze: #b0703a;
@@ -83,7 +90,7 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-red-600;
+    @apply outline-2 outline-offset-2 outline-accent-600;
   }
 
   img {
@@ -102,7 +109,7 @@
   }
   .eyebrow::before {
     content: '';
-    @apply h-px w-8 bg-red-600;
+    @apply h-px w-8 bg-accent-600;
   }
   .eyebrow-gold::before {
     @apply bg-gold-500;
@@ -122,7 +129,7 @@
     @apply rounded-[var(--radius-card)] border border-line bg-white;
   }
   .card-hover {
-    @apply transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-18px_rgba(11,31,51,0.35)];
+    @apply transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-18px_rgba(20,42,49,0.35)];
   }
 
   .gold-rule {
@@ -143,10 +150,10 @@
     @apply mt-8 font-display text-xl font-semibold text-ink;
   }
   .prose-kr a {
-    @apply font-medium text-navy-700 underline decoration-red-600/40 underline-offset-4 hover:decoration-red-600;
+    @apply font-medium text-navy-700 underline decoration-accent-600/40 underline-offset-4 hover:decoration-accent-600;
   }
   .prose-kr ul {
-    @apply list-disc space-y-2 pl-6 marker:text-red-600;
+    @apply list-disc space-y-2 pl-6 marker:text-accent-600;
   }
   .prose-kr ol {
     @apply list-decimal space-y-2 pl-6;

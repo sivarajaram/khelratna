@@ -4,6 +4,7 @@ import type { Champion } from '@/types/database'
 import { useQuery } from '@/hooks/useQuery'
 import { getAthleteSlugs, getCompetition, listCompetitionResults, listGallery } from '@/services/content'
 import { formatDateRange, ordinal } from '@/utils/format'
+import { cn } from '@/utils/cn'
 import { Seo, absoluteUrl } from '@/components/common/Seo'
 import { PageHero } from '@/components/public/PageHero'
 import { CompetitionStatusBadge, MedalBadge } from '@/components/common/Badge'
@@ -52,15 +53,15 @@ export default function CompetitionDetailPage() {
         crumbs={[{ to: '/competitions', label: 'Competitions' }, { label: c?.name ?? '…' }]}
       >
         {c && (
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-white/80">
-            <CompetitionStatusBadge status={c.status} onDark />
+          <div className={cn('flex flex-wrap items-center gap-x-8 gap-y-3 text-sm', c.cover_image_url ? 'text-white/80' : 'text-ink/80')}>
+            <CompetitionStatusBadge status={c.status} onDark={!!c.cover_image_url} />
             <span className="inline-flex items-center gap-2">
-              <CalendarDays className="size-4 text-gold-300" aria-hidden />
+              <CalendarDays className={cn('size-4', c.cover_image_url ? 'text-gold-300' : 'text-navy-600')} aria-hidden />
               {formatDateRange(c.start_date, c.end_date)}
             </span>
             {c.location && (
               <span className="inline-flex items-center gap-2">
-                <MapPin className="size-4 text-gold-300" aria-hidden />
+                <MapPin className={cn('size-4', c.cover_image_url ? 'text-gold-300' : 'text-navy-600')} aria-hidden />
                 {c.location}
               </span>
             )}

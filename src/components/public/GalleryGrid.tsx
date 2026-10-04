@@ -38,7 +38,7 @@ export function GalleryGrid({ items, columns = 'default', className }: GalleryGr
             <li key={item.id} className="mb-4 break-inside-avoid">
               <button
                 onClick={() => setIndex(i)}
-                className="group relative block w-full overflow-hidden rounded-xl text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="group relative block w-full overflow-hidden rounded-xl text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-600"
                 aria-label={`Open ${item.media_type === 'image' ? 'image' : 'video'}: ${item.caption ?? item.alt ?? 'gallery item'}`}
               >
                 {thumb ? (

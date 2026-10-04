@@ -62,8 +62,8 @@ export default function CompetitionsPage() {
           <dl className="flex flex-wrap gap-x-10 gap-y-4">
             {(['upcoming', 'ongoing', 'completed'] as const).map((s) => (
               <div key={s} className="flex items-baseline gap-3">
-                <dt className="order-2 text-xs font-semibold tracking-[0.16em] text-white/50 uppercase">{s}</dt>
-                <dd className="font-display text-3xl font-bold tabular-nums">{options.counts[s]}</dd>
+                <dt className="order-2 text-xs font-semibold tracking-[0.16em] text-muted uppercase">{s}</dt>
+                <dd className="font-display text-3xl font-bold text-navy-900 tabular-nums">{options.counts[s]}</dd>
               </div>
             ))}
           </dl>

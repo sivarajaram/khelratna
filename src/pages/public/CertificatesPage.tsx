@@ -45,7 +45,10 @@ export default function CertificatesPage() {
 
   return (
     <>
-      <Seo title="Certificate Verification" description="Verify the authenticity of a certificate issued by Arjuna Book of World Record using its certificate number." />
+      <Seo
+        title="Certificate Verification"
+        description="Verify the authenticity of a certificate issued by Arjuna Book of World Record using its certificate number."
+      />
       <PageHero
         eyebrow="Verification"
         title="Certificate verification"
@@ -58,7 +61,7 @@ export default function CertificatesPage() {
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate
-            className="-mt-28 rounded-3xl bg-white p-6 shadow-[0_30px_60px_-30px_rgba(11,31,51,0.35)] ring-1 ring-line sm:p-10 lg:-mt-36"
+            className="-mt-28 rounded-3xl bg-white p-6 shadow-[0_30px_60px_-30px_rgba(20,42,49,0.35)] ring-1 ring-line sm:p-10 lg:-mt-36"
           >
             <label htmlFor="cert-number" className="block font-display text-lg font-semibold text-navy-900">
               Certificate number

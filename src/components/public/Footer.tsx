@@ -1,7 +1,6 @@
 import { Link } from 'react-router'
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { Logo } from '@/components/common/Logo'
-import { publication } from '@/config/publication'
 import { splitPhones, telHref } from '@/utils/format'
 import { SocialIcon, socialLabels } from '@/components/common/SocialIcon'
 import { useSiteSettings } from '@/hooks/useSiteSettings'
@@ -43,10 +42,6 @@ export function Footer() {
         <div className="lg:col-span-4">
           <Logo logoUrl={settings?.logo_url} name={org} tone="light" />
           {settings?.footer_text && <p className="mt-6 max-w-sm text-sm leading-6 text-white/60">{settings.footer_text}</p>}
-          <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-gold-500/30 px-3.5 py-1.5 text-xs text-gold-100">
-            <span className="font-semibold tracking-[0.14em] text-gold-300 uppercase">ISBN</span>
-            <span className="tabular-nums">{publication.isbn}</span>
-          </p>
           {social.length > 0 && (
             <ul className="mt-8 flex gap-2.5" aria-label="Social media">
               {social.map((s) => (

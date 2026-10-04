@@ -22,7 +22,6 @@ const published = { eq: { status: 'published' } } satisfies QueryOptions
 const publicCompetitions = { neq: { status: 'draft' }, eq: { is_archived: false } } satisfies QueryOptions
 
 const pageRange = (page: number, size = PAGE_SIZE) => ({ from: (page - 1) * size, to: page * size - 1 })
-const today = () => new Date().toISOString().slice(0, 10)
 
 /** Drops undefined entries so an unset filter can never overwrite a visibility filter. */
 const defined = <V>(obj: Record<string, V | undefined> | undefined) =>
@@ -88,28 +87,13 @@ export async function listCompetitions(f: CompetitionFilters = {}) {
   )
 }
 
-/** Featured competition: an upcoming/ongoing one flagged as featured, else the next one, else the latest completed. */
-export async function getFeaturedCompetition(): Promise<Competition | null> {
-  const c = repo('competitions')
-  const live = { in: { status: ['upcoming', 'ongoing'] } }
-  const featured = await c.list(merge(publicCompetitions, live, { eq: { is_featured: true }, order: [{ column: 'start_date' }], range: { from: 0, to: 0 } }))
-  if (featured.rows[0]) return featured.rows[0]
-  const next = await c.list(merge(publicCompetitions, live, { gte: { start_date: today() }, order: [{ column: 'start_date' }], range: { from: 0, to: 0 } }))
-  if (next.rows[0]) return next.rows[0]
-  const past = await c.list(
-    merge(publicCompetitions, { eq: { status: 'completed' }, order: [{ column: 'start_date', ascending: false }], range: { from: 0, to: 0 } }),
-  )
-  return past.rows[0] ?? null
-}
-
-export async function listShowcaseCompetitions(excludeId?: string) {
+/** Upcoming and ongoing championships, soonest first (shown on the News page). */
+export async function listUpcomingCompetitions(limit = 6): Promise<Competition[]> {
   const { rows } = await repo('competitions').list(
     merge(publicCompetitions, {
-      // status whitelist rather than a second neq, which would replace the draft filter
-      in: { status: ['upcoming', 'ongoing', 'completed'] },
-      neq: excludeId ? { id: excludeId } : undefined,
-      order: [{ column: 'start_date', ascending: false }],
-      range: { from: 0, to: 2 },
+      in: { status: ['upcoming', 'ongoing'] },
+      order: [{ column: 'start_date' }],
+      range: { from: 0, to: limit - 1 },
     }),
   )
   return rows

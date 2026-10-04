@@ -11,6 +11,7 @@ import { CardGridSkeleton, EmptyState } from '@/components/common/States'
 import { Pagination } from '@/components/common/Pagination'
 import { Reveal } from '@/components/common/Reveal'
 import { NewsCard } from '@/components/public/Cards'
+import { UpcomingCompetitions } from '@/components/public/UpcomingCompetitions'
 
 const PAGE = 9
 
@@ -27,9 +28,11 @@ export default function NewsPage() {
         variant="editorial"
         eyebrow="Newsroom"
         title="News & stories"
-        description="Announcements, results and stories from Arjuna Book of World Record championships."
+        description="Announcements, upcoming championships, results and stories from Arjuna Book of World Record."
         crumbs={[{ label: 'News' }]}
       />
+
+      {page === 1 && !activeCount && <UpcomingCompetitions />}
 
       <section className="py-14 lg:py-20">
         <div className="container-page">

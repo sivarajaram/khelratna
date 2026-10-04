@@ -55,7 +55,7 @@ export default function NewsDetailPage() {
             <Link to="/news" className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-white/60 uppercase hover:text-white">
               <ArrowLeft className="size-4" aria-hidden /> All news
             </Link>
-            {n.category && <p className="mt-8 text-xs font-semibold tracking-[0.2em] text-red-600 uppercase">{n.category}</p>}
+            {n.category && <p className="mt-8 text-xs font-semibold tracking-[0.2em] text-accent-600 uppercase">{n.category}</p>}
             <h1 className="mt-4 font-display text-3xl leading-tight font-bold tracking-tight sm:text-5xl sm:leading-[1.1]">{n.title}</h1>
             {n.excerpt && <p className="mt-6 text-lg leading-8 text-white/70">{n.excerpt}</p>}
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/60">

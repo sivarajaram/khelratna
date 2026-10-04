@@ -18,7 +18,7 @@ export default function RouteError() {
         <div className="mt-8 flex justify-center gap-3">
           <button
             onClick={() => window.location.reload()}
-            className="rounded-full bg-red-600 px-5 py-3 text-xs font-semibold tracking-[0.12em] uppercase hover:bg-red-700"
+            className="rounded-full bg-accent-600 px-5 py-3 text-xs font-semibold tracking-[0.12em] uppercase hover:bg-accent-700"
           >
             Refresh
           </button>

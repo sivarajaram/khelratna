@@ -8,7 +8,7 @@ import { DemoBanner } from '@/components/public/DemoBanner'
 export function NavigationProgress() {
   const navigation = useNavigation()
   if (navigation.state === 'idle') return null
-  return <div className="fixed inset-x-0 top-0 z-[100] h-0.5 origin-left animate-pulse bg-red-600" role="progressbar" aria-label="Loading page" />
+  return <div className="fixed inset-x-0 top-0 z-[100] h-0.5 origin-left animate-pulse bg-accent-600" role="progressbar" aria-label="Loading page" />
 }
 
 /** Scrolls to #hash targets once the page content (often async) has rendered. */

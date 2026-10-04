@@ -12,7 +12,7 @@ export default function NotFoundPage({ title = 'Page not found' }: { title?: str
           <LinkButton to="/" icon={<ArrowLeft className="size-4" aria-hidden />}>
             Back to home
           </LinkButton>
-          <LinkButton to="/competitions" variant="outline-light">
+          <LinkButton to="/competitions" variant="outline">
             Explore competitions
           </LinkButton>
         </div>

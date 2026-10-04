@@ -38,18 +38,18 @@ export function Navbar() {
 
   useEffect(() => setOpen(false), [location.pathname])
 
-  const solid = scrolled
   return (
     <>
       <header
         className={cn(
           'fixed inset-x-0 top-[var(--banner-h,0px)] z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300',
-          solid ? 'bg-white/95 shadow-[0_1px_0_rgba(16,24,40,0.06),0_8px_24px_-12px_rgba(11,31,51,0.18)] backdrop-blur-md' : 'bg-transparent',
+          'border-b border-line bg-white/95 backdrop-blur-md',
+          scrolled && 'shadow-[0_8px_24px_-14px_rgba(20,42,49,0.25)]',
         )}
       >
         <nav className="container-page flex h-18 items-center justify-between gap-6 lg:h-20" aria-label="Main">
           <Link to="/" className="shrink-0 rounded-lg" aria-label={`${settings?.org_name ?? 'Arjuna Book of World Record'} — home`}>
-            <Logo logoUrl={settings?.logo_url} name={settings?.org_name} tone={solid ? 'dark' : 'light'} />
+            <Logo logoUrl={settings?.logo_url} name={settings?.org_name} tone="dark" />
           </Link>
 
           <ul className="hidden items-center gap-0.5 xl:flex">
@@ -61,9 +61,9 @@ export function Navbar() {
                   className={({ isActive }) =>
                     cn(
                       'relative rounded-full px-3 py-2 text-[0.8125rem] font-medium whitespace-nowrap transition-colors',
-                      solid ? 'text-ink/75 hover:text-navy-900' : 'text-white/75 hover:text-white',
-                      isActive && (solid ? 'text-navy-900' : 'text-white'),
-                      isActive && 'after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-red-600',
+                      'text-ink/70 hover:text-navy-900',
+                      isActive && 'text-navy-900',
+                      isActive && 'after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-navy-700',
                     )
                   }
                 >
@@ -81,10 +81,7 @@ export function Navbar() {
             </span>
             <button
               onClick={() => setOpen(true)}
-              className={cn(
-                'grid size-11 place-items-center rounded-full xl:hidden',
-                solid ? 'text-navy-900 hover:bg-navy-50' : 'text-white hover:bg-white/10',
-              )}
+              className={cn('grid size-11 place-items-center rounded-full xl:hidden', 'text-navy-900 hover:bg-navy-50')}
               aria-label="Open menu"
               aria-expanded={open}
               aria-controls="mobile-menu"
@@ -136,7 +133,7 @@ export function Navbar() {
                     {({ isActive }) => (
                       <>
                         {item.label}
-                        {isActive && <span className="size-2 rounded-full bg-red-600" aria-hidden />}
+                        {isActive && <span className="size-2 rounded-full bg-accent-600" aria-hidden />}
                       </>
                     )}
                   </NavLink>

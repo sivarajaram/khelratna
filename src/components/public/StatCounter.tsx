@@ -39,7 +39,7 @@ export function StatCounter({ value, suffix = '', label, className, tone = 'ligh
         </span>
         <span aria-hidden>
           {fmt.format(display)}
-          <span className="text-red-600">{suffix}</span>
+          <span className="text-accent-600">{suffix}</span>
         </span>
       </p>
       <p className={cn('mt-2 text-xs font-semibold tracking-[0.16em] uppercase', dark ? 'text-white/55' : 'text-muted')}>{label}</p>

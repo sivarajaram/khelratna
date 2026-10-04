@@ -7,13 +7,13 @@ type Variant = 'primary' | 'navy' | 'outline' | 'outline-light' | 'light' | 'gho
 type Size = 'sm' | 'md' | 'lg'
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-red-600 text-white hover:bg-red-700 shadow-[0_8px_24px_-10px_rgba(198,40,40,0.7)]',
+  primary: 'bg-navy-900 text-white hover:bg-navy-800',
   navy: 'bg-navy-900 text-white hover:bg-navy-700',
   outline: 'border border-navy-900/20 text-navy-900 hover:border-navy-900 hover:bg-navy-900 hover:text-white',
   'outline-light': 'border border-white/30 text-white hover:border-white hover:bg-white hover:text-navy-900',
   light: 'bg-white text-navy-900 hover:bg-gold-50',
   ghost: 'text-navy-900 hover:bg-navy-50',
-  gold: 'bg-gold-500 text-navy-950 hover:bg-gold-300',
+  gold: 'bg-gold-300 text-navy-950 hover:bg-gold-100',
   danger: 'bg-red-600 text-white hover:bg-red-700',
 }
 

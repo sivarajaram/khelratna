@@ -10,7 +10,7 @@ import { Badge, CompetitionStatusBadge, MedalBadge } from '@/components/common/B
 // Each card is one link: the title anchor stretches over the card via ::after,
 // so the card is fully clickable while screen readers hear a single link.
 const stretched = 'after:absolute after:inset-0 after:z-10 after:content-[""] focus-visible:outline-none'
-const cardFocus = 'focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-red-600'
+const cardFocus = 'focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-accent-600'
 
 // ---------------------------------------------------------------- competition
 export function CompetitionCard({ competition: c, className }: { competition: Competition; className?: string }) {
@@ -29,7 +29,7 @@ export function CompetitionCard({ competition: c, className }: { competition: Co
         </div>
       </div>
       <div className="flex flex-1 flex-col p-6">
-        {c.level && <p className="text-[0.6875rem] font-semibold tracking-[0.2em] text-red-600 uppercase">{c.level}</p>}
+        {c.level && <p className="text-[0.6875rem] font-semibold tracking-[0.2em] text-accent-600 uppercase">{c.level}</p>}
         <h3 className="mt-2 font-display text-xl leading-snug font-semibold text-navy-900">
           <Link to={`/competitions/${c.slug}`} className={stretched}>
             {c.name}
@@ -68,6 +68,7 @@ export function ChampionCard({ champion: c, athleteSlug }: { champion: ChampionW
         aspect="aspect-[4/5]"
         imgClassName="transition duration-700 group-hover:scale-[1.04]"
         placeholderLabel="Athlete photo"
+        tone="dark"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" aria-hidden />
       {c.medal && <MedalBadge medal={c.medal} className="absolute top-4 left-4" />}
@@ -196,7 +197,7 @@ export function NewsCard({ article: n, variant = 'default' }: { article: NewsArt
       <article className={cn('group relative flex gap-4', cardFocus, 'rounded-xl')}>
         <Media src={n.cover_image_url} alt="" className="w-28 shrink-0 rounded-xl sm:w-36" aspect="aspect-[4/3]" placeholderLabel="" />
         <div className="min-w-0">
-          <p className="text-[0.6875rem] font-semibold tracking-[0.14em] text-red-600 uppercase">
+          <p className="text-[0.6875rem] font-semibold tracking-[0.14em] text-accent-600 uppercase">
             {n.category}
             <span className="text-muted"> · {formatDate(n.publish_date)}</span>
           </p>
@@ -221,7 +222,7 @@ export function NewsCard({ article: n, variant = 'default' }: { article: NewsArt
         placeholderLabel="News photo"
       />
       <div className="flex flex-1 flex-col pt-5">
-        <p className="text-[0.6875rem] font-semibold tracking-[0.14em] text-red-600 uppercase">
+        <p className="text-[0.6875rem] font-semibold tracking-[0.14em] text-accent-600 uppercase">
           {n.category ?? 'News'}
           <span className="text-muted"> · {formatDate(n.publish_date)}</span>
         </p>
